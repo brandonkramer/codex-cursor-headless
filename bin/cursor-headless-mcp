@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Thin MCP entrypoint for Codex — keeps the Python MCP server warm via stdio.
+# Preferred launch is plugin.json → `uv run ...` (cross-platform). This script
+# remains for manual/debug use on macOS/Linux.
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+export CURSOR_HEADLESS_ROOT="$ROOT"
+exec uv run --with mcp --python 3.14 python "$ROOT/src/cursor_headless_mcp.py"

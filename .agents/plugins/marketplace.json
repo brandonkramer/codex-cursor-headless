@@ -1,0 +1,20 @@
+{
+  "name": "cursor-headless",
+  "interface": {
+    "displayName": "Cursor Headless"
+  },
+  "plugins": [
+    {
+      "name": "cursor-headless",
+      "source": {
+        "source": "local",
+        "path": "."
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

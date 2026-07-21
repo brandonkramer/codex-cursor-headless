@@ -12,17 +12,23 @@ Thin MCP tools over the fast `cursor_headless.py` wrapper — native Codex tools
 
 Pass `model` explicitly: simple → `composer-2.5` (or `*-fast` / `fast=true` when latency matters); light → `cursor-grok-4.5-low`; medium → `…-medium`; hard → `…-high`.
 
-## Slash command
+## Slash commands
 
 | Command | What it does |
 |---------|----------------|
 | `/cursor-implement-workflow` | Codex orchestrates; fans out parallel `cursor_ask` / `cursor_plan` / `cursor_implement` workers (default `composer-2.5` + Fast; escalate to Grok 4.5 by difficulty) |
+| `/cursor-review-loop` | Codex (this chat) reviews → Cursor workers fix → Codex reviews again until no blocker/major findings (max 5 iterations) |
 
-Example: `/cursor-implement-workflow split auth refactor into explore + implement + tests`
+Examples:
+
+```text
+/cursor-implement-workflow split auth refactor into explore + implement + tests
+/cursor-review-loop uncommitted changes from the auth refactor
+```
 
 ## Layout
 
-- `commands/cursor-implement-workflow.md` — orchestration slash command
+- `commands/` — `/cursor-implement-workflow`, `/cursor-review-loop`
 - `skills/cursor-headless/` — routing skill + CLI wrapper
 - `src/cursor_headless_mcp.py` — FastMCP facade
 - `bin/cursor-headless-mcp` — `uv run --with mcp` launcher

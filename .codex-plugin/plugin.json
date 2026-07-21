@@ -1,10 +1,11 @@
 {
   "name": "cursor-headless",
-  "version": "0.1.0",
-  "description": "Delegate to Cursor Agent from Codex via thin MCP tools (ask/plan/implement) wrapping a fast headless CLI path. Ask/plan default Grok 4.5 High; implement Composer 2.5 — Codex picks tier and Fast.",
+  "version": "0.1.1",
+  "description": "Delegate to Cursor Agent from Codex via thin MCP tools (ask/plan/implement) wrapping a fast headless CLI path. Ask/plan default Grok 4.5 High; implement Composer 2.5 — Codex picks tier and Fast. Includes /cursor-implement-workflow.",
   "license": "MIT",
   "keywords": ["cursor", "cursor-agent", "composer", "grok", "orchestration"],
   "skills": "./skills/",
+  "commands": "./commands/",
   "mcpServers": {
     "cursor-headless": {
       "command": "uv",
@@ -29,7 +30,8 @@
     "defaultPrompt": [
       "Use cursor_ask with Grok 4.5 low/medium/high (opt into Fast) by complexity.",
       "Use cursor_plan with Grok 4.5 low/medium/high (opt into Fast) by complexity.",
-      "Use cursor_implement with composer-2.5 (opt into Fast) or Grok 4.5 low/medium/high by complexity."
+      "Use cursor_implement with composer-2.5 (opt into Fast) or Grok 4.5 low/medium/high by complexity.",
+      "Use /cursor-implement-workflow to fan out parallel Cursor workers from Codex."
     ]
   }
 }
